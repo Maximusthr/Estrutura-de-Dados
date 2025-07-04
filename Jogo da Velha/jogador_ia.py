@@ -10,14 +10,234 @@ class JogadorIA(Jogador):
             
 
     def getJogada(self) -> (int, int):
-        lista = []
-        for l in range(0,3):
-            for c in range(0,3):
-                if self.matriz[l][c] == Tabuleiro.DESCONHECIDO:
-                    lista.append((l, c))
+        # R1
+        # Computador
+        # Linhas
+        for i in range(3):
+            sum = 0
+            i_empty = -1
+            j_empty = -1
+            for j in range(3):
+                if self.tabuleiro.matriz[i][j] == Tabuleiro.JOGADOR_0:
+                    sum += 1
+                if self.tabuleiro.matriz[i][j] == Tabuleiro.DESCONHECIDO:
+                    i_empty = i
+                    j_empty = j
+            
+            if sum == 2 and i_empty != -1 and j_empty != -1:
+                return (i_empty, j_empty)
+        
+        # Colunas
+        for i in range(3):
+            sum = 0
+            i_empty = -1
+            j_empty = -1
+            for j in range(3):
+                if self.tabuleiro.matriz[j][i] == Tabuleiro.JOGADOR_0:
+                    sum += 1
+                if self.tabuleiro.matriz[j][i] == Tabuleiro.DESCONHECIDO:
+                    i_empty = i
+                    j_empty = j
+            
+            if sum == 2 and i_empty != -1 and j_empty != -1:
+                return (j_empty, i_empty)
+
+        # D. Principal
+        temp = 0
+        i_empty = -1
+        for i in range(3):
+            if self.tabuleiro.matriz[i][i] == Tabuleiro.JOGADOR_0:
+                temp += 1
+            if self.tabuleiro.matriz[i][i] == Tabuleiro.DESCONHECIDO:
+                i_empty = i
+        if (temp == 2 and i_empty != -1):
+            return (i_empty, i_empty)
+        
+        # D. Secundaria
+        temp = 0
+        i_empty = -1
+        for i in range(3):
+            if self.tabuleiro.matriz[i][2 - i] == Tabuleiro.JOGADOR_0:
+                temp += 1
+            if self.tabuleiro.matriz[i][2 - i] == Tabuleiro.DESCONHECIDO:
+                i_empty = i
+        if (temp == 2 and i_empty != -1):
+            return (i_empty, 2 - i_empty)
+
+
+        # Jogador
+        # Linhas
+        for i in range(3):
+            sum = 0
+            i_empty = -1
+            j_empty = -1
+            for j in range(3):
+                if self.tabuleiro.matriz[i][j] == Tabuleiro.JOGADOR_X:
+                    sum += 5
+                if self.tabuleiro.matriz[i][j] == Tabuleiro.DESCONHECIDO:
+                    i_empty = i
+                    j_empty = j
+            
+            if sum == 10 and i_empty != -1 and j_empty != -1:
+                return (i_empty, j_empty)
+        
+        # Colunas
+        for i in range(3):
+            sum = 0
+            i_empty = -1
+            j_empty = -1
+            for j in range(3):
+                if self.tabuleiro.matriz[j][i] == Tabuleiro.JOGADOR_X:
+                    sum += 5
+                if self.tabuleiro.matriz[j][i] == Tabuleiro.DESCONHECIDO:
+                    i_empty = i
+                    j_empty = j
+            
+            if sum == 10 and i_empty != -1 and j_empty != -1:
+                return (j_empty, i_empty)
+
+        # D. Principal
+        temp = 0
+        i_empty = -1
+        for i in range(3):
+            if self.tabuleiro.matriz[i][i] == Tabuleiro.JOGADOR_X:
+                temp += 5
+            if self.tabuleiro.matriz[i][i] == Tabuleiro.DESCONHECIDO:
+                i_empty = i
+        if (temp == 10 and i_empty != -1):
+            return (i_empty, i_empty)
+        
+        # D. Secundaria
+        temp = 0
+        i_empty = -1
+        for i in range(3):
+            if self.tabuleiro.matriz[i][2 - i] == Tabuleiro.JOGADOR_X:
+                temp += 5
+            if self.tabuleiro.matriz[i][2 - i] == Tabuleiro.DESCONHECIDO:
+                i_empty = i
+        if (temp == 10 and i_empty != -1):
+            return (i_empty, 2 - i_empty)
+
+        # R2
+        for i in range(3):
+            for j in range(3):
+                if self.tabuleiro.matriz[i][j] == Tabuleiro.DESCONHECIDO:
+                    verif = 0
+                    ok_0 = False
+                    ok_vazio = False
+    
+                    # Linha
+                    for k in range(3):
+                        if (k == j): 
+                            continue
+                        
+                        if (self.tabuleiro.matriz[i][k] == Tabuleiro.JOGADOR_0):
+                            ok_0 = True
+                        elif (self.tabuleiro.matriz[i][k] == Tabuleiro.DESCONHECIDO):
+                            ok_vazio = True
+                        elif (self.tabuleiro.matriz[i][k] == Tabuleiro.JOGADOR_X):
+                            ok_0 = False
+                            ok_vazio = False
+                            break
+
+                    if (ok_0 and ok_vazio):
+                        verif += 1
+                        ok_0 = False
+                        ok_vazio = False
                     
-        if(len(lista) > 0):
-            p = randint(0, len(lista)-1)
-            return lista[p]
-        else:
-           return None
+                    # Coluna
+                    for k in range(3):
+                        if (k == i): 
+                            continue
+                        if (self.tabuleiro.matriz[k][j] == Tabuleiro.JOGADOR_0):
+                            ok_0 = True
+                        elif (self.tabuleiro.matriz[k][j] == Tabuleiro.DESCONHECIDO):
+                            ok_vazio = True
+                        elif (self.tabuleiro.matriz[k][j] == Tabuleiro.JOGADOR_X):
+                            ok_0 = False
+                            ok_vazio = False
+                            break
+                        
+                    if (ok_0 and ok_vazio):
+                        verif += 1
+                        ok_0 = False
+                        ok_vazio = False
+                    
+                    if (i != 1 and j != 1):
+                        if (i == 0 and j == 0) or (i == 2 and j == 2):
+                            # D. Principal
+                            for k in range(3):
+                                if (k == i and k == j): 
+                                    continue
+
+                                if (self.tabuleiro.matriz[k][k] == Tabuleiro.JOGADOR_0):
+                                    ok_0 = True
+
+                                if (self.tabuleiro.matriz[k][k] == Tabuleiro.DESCONHECIDO):
+                                    ok_vazio = True
+
+                                elif (self.tabuleiro.matriz[k][k] == Tabuleiro.JOGADOR_X):
+                                    sum = 0
+                                    break
+
+                            if (ok_0 and ok_vazio):
+                                verif += 1
+
+                        elif (i == 0 and j == 2) or (i == 2 and j == 0):
+                            # D. Secundaria
+                            for k in range(3):
+                                if (k == i and 2 - k == j): 
+                                    continue
+
+                                if (self.tabuleiro.matriz[k][2 - k] == Tabuleiro.JOGADOR_0):
+                                    ok_0 = True
+                                
+                                if (self.tabuleiro.matriz[k][2 - k] == Tabuleiro.DESCONHECIDO):
+                                    ok_vazio = True
+
+                                elif (self.tabuleiro.matriz[k][2 - k] == Tabuleiro.JOGADOR_X):
+                                    sum = 0
+                                    break
+
+                            if (ok_0 and ok_vazio):
+                                verif += 1
+                    
+                    if verif >= 2:
+                        return (i, j)
+
+        # R3
+        if (self.tabuleiro.matriz[1][1] == Tabuleiro.DESCONHECIDO):
+            return (1, 1)
+    
+        # R4
+        if (self.tabuleiro.matriz[0][0] == Tabuleiro.JOGADOR_X and self.tabuleiro.matriz[2][2] == Tabuleiro.DESCONHECIDO):
+            return (2, 2)
+        
+        if (self.tabuleiro.matriz[2][2] == Tabuleiro.JOGADOR_X and self.tabuleiro.matriz[0][0] == Tabuleiro.DESCONHECIDO):
+            return (0, 0)
+        
+        if (self.tabuleiro.matriz[0][2] == Tabuleiro.JOGADOR_X and self.tabuleiro.matriz[2][0] == Tabuleiro.DESCONHECIDO):
+            return (2, 0)
+        
+        if (self.tabuleiro.matriz[2][0] == Tabuleiro.JOGADOR_X and self.tabuleiro.matriz[0][2] == Tabuleiro.DESCONHECIDO):
+            return (0, 2)
+        
+        # R5
+        if (self.tabuleiro.matriz[0][0] == Tabuleiro.DESCONHECIDO):
+            return (0, 0)
+        
+        if (self.tabuleiro.matriz[0][2] == Tabuleiro.DESCONHECIDO):
+            return (0, 2)
+        
+        if (self.tabuleiro.matriz[2][0] == Tabuleiro.DESCONHECIDO):
+            return (2, 0)
+        
+        if (self.tabuleiro.matriz[2][2] == Tabuleiro.DESCONHECIDO):
+            return (2, 2)
+
+        # R6
+        for i in range(3):
+            for j in range(3):
+                if self.tabuleiro.matriz[i][j] == Tabuleiro.DESCONHECIDO:
+                    return (i, j)
+                

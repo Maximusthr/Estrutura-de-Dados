@@ -12,16 +12,17 @@ class JogadorHumano(Jogador):
       
     def getJogada(self) -> (int, int):
         while True:
-             for event in pygame.event.get():
-                 if (event.type == pygame.QUIT):
+            for event in pygame.event.get():
+                if (event.type == pygame.QUIT):
                      pygame.quit()
          
-                 if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.type == pygame.MOUSEBUTTONDOWN:
              
-                     for l in range(0,3):
-                         for c in range(0,3):
-                             b = self.buttons[l][c]
-                             if b.rect.collidepoint(pygame.mouse.get_pos()):
-                                 return (l, c)
+                    for l in range(0,3):
+                        for c in range(0,3):
+                            if (self.matriz[l][c] == Tabuleiro.DESCONHECIDO):                                    
+                                b = self.buttons[l][c]
+                                if b.rect.collidepoint(pygame.mouse.get_pos()):
+                                    return (l, c)
                             
     
