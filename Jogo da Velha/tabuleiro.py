@@ -17,27 +17,27 @@ class Tabuleiro:
     def tem_campeao(self):
         # Linhas
         for i in range(3):
-            sum = 0
+            soma = 0
             for j in range(3):
                 if (self.matriz[i][j] == Tabuleiro.JOGADOR_0):
-                    sum += 1
+                    soma += 1
                 elif (self.matriz[i][j] == Tabuleiro.JOGADOR_X):
-                    sum += 5
+                    soma += 5
 
-            if (self.venceu(sum)):
-                return Tabuleiro.JOGADOR_0 if sum == 3 else Tabuleiro.JOGADOR_X
+            if (self.venceu(soma)):
+                return Tabuleiro.JOGADOR_0 if soma == 3 else Tabuleiro.JOGADOR_X
 
         # Colunas
         for i in range(3):
-            sum = 0
+            soma = 0
             for j in range(3):
                 if (self.matriz[j][i] == Tabuleiro.JOGADOR_0):
-                    sum += 1
+                    soma += 1
                 elif (self.matriz[j][i] == Tabuleiro.JOGADOR_X):
-                    sum += 5
+                    soma += 5
 
-            if (self.venceu(sum)):
-                return Tabuleiro.JOGADOR_0 if sum == 3 else Tabuleiro.JOGADOR_X 
+            if (self.venceu(soma)):
+                return Tabuleiro.JOGADOR_0 if soma == 3 else Tabuleiro.JOGADOR_X 
 
         # D. Principal
         temp = 0

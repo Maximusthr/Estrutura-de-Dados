@@ -14,109 +14,109 @@ class JogadorIA(Jogador):
         # Computador
         # Linhas
         for i in range(3):
-            sum = 0
-            i_empty = -1
-            j_empty = -1
+            soma = 0
+            i_vazio = -1
+            j_vazio = -1
             for j in range(3):
                 if self.tabuleiro.matriz[i][j] == Tabuleiro.JOGADOR_0:
-                    sum += 1
+                    soma += 1
                 if self.tabuleiro.matriz[i][j] == Tabuleiro.DESCONHECIDO:
-                    i_empty = i
-                    j_empty = j
+                    i_vazio = i
+                    j_vazio = j
             
-            if sum == 2 and i_empty != -1 and j_empty != -1:
-                return (i_empty, j_empty)
+            if (soma == 2 and i_vazio != -1 and j_vazio != -1):
+                return (i_vazio, j_vazio)
         
         # Colunas
         for i in range(3):
-            sum = 0
-            i_empty = -1
-            j_empty = -1
+            soma = 0
+            i_vazio = -1
+            j_vazio = -1
             for j in range(3):
                 if self.tabuleiro.matriz[j][i] == Tabuleiro.JOGADOR_0:
-                    sum += 1
+                    soma += 1
                 if self.tabuleiro.matriz[j][i] == Tabuleiro.DESCONHECIDO:
-                    i_empty = i
-                    j_empty = j
+                    i_vazio = i
+                    j_vazio = j
             
-            if sum == 2 and i_empty != -1 and j_empty != -1:
-                return (j_empty, i_empty)
+            if (soma == 2 and i_vazio != -1 and j_vazio != -1):
+                return (j_vazio, i_vazio)
 
         # D. Principal
         temp = 0
-        i_empty = -1
+        i_vazio = -1
         for i in range(3):
             if self.tabuleiro.matriz[i][i] == Tabuleiro.JOGADOR_0:
                 temp += 1
             if self.tabuleiro.matriz[i][i] == Tabuleiro.DESCONHECIDO:
-                i_empty = i
-        if (temp == 2 and i_empty != -1):
-            return (i_empty, i_empty)
+                i_vazio = i
+        if (temp == 2 and i_vazio != -1):
+            return (i_vazio, i_vazio)
         
         # D. Secundaria
         temp = 0
-        i_empty = -1
+        i_vazio = -1
         for i in range(3):
-            if self.tabuleiro.matriz[i][2 - i] == Tabuleiro.JOGADOR_0:
+            if self.tabuleiro.matriz[i][2-i] == Tabuleiro.JOGADOR_0:
                 temp += 1
-            if self.tabuleiro.matriz[i][2 - i] == Tabuleiro.DESCONHECIDO:
-                i_empty = i
-        if (temp == 2 and i_empty != -1):
-            return (i_empty, 2 - i_empty)
+            if self.tabuleiro.matriz[i][2-i] == Tabuleiro.DESCONHECIDO:
+                i_vazio = i
+        if (temp == 2 and i_vazio != -1):
+            return (i_vazio, 2-i_vazio)
 
 
         # Jogador
         # Linhas
         for i in range(3):
-            sum = 0
-            i_empty = -1
-            j_empty = -1
+            soma = 0
+            i_vazio = -1
+            j_vazio = -1
             for j in range(3):
                 if self.tabuleiro.matriz[i][j] == Tabuleiro.JOGADOR_X:
-                    sum += 5
+                    soma += 5
                 if self.tabuleiro.matriz[i][j] == Tabuleiro.DESCONHECIDO:
-                    i_empty = i
-                    j_empty = j
+                    i_vazio = i
+                    j_vazio = j
             
-            if sum == 10 and i_empty != -1 and j_empty != -1:
-                return (i_empty, j_empty)
+            if (soma == 10 and i_vazio != -1 and j_vazio != -1):
+                return (i_vazio, j_vazio)
         
         # Colunas
         for i in range(3):
-            sum = 0
-            i_empty = -1
-            j_empty = -1
+            soma = 0
+            i_vazio = -1
+            j_vazio = -1
             for j in range(3):
                 if self.tabuleiro.matriz[j][i] == Tabuleiro.JOGADOR_X:
-                    sum += 5
+                    soma += 5
                 if self.tabuleiro.matriz[j][i] == Tabuleiro.DESCONHECIDO:
-                    i_empty = i
-                    j_empty = j
+                    i_vazio = i
+                    j_vazio = j
             
-            if sum == 10 and i_empty != -1 and j_empty != -1:
-                return (j_empty, i_empty)
+            if (soma == 10 and i_vazio != -1 and j_vazio != -1):
+                return (j_vazio, i_vazio)
 
         # D. Principal
         temp = 0
-        i_empty = -1
+        i_vazio = -1
         for i in range(3):
             if self.tabuleiro.matriz[i][i] == Tabuleiro.JOGADOR_X:
                 temp += 5
             if self.tabuleiro.matriz[i][i] == Tabuleiro.DESCONHECIDO:
-                i_empty = i
-        if (temp == 10 and i_empty != -1):
-            return (i_empty, i_empty)
+                i_vazio = i
+        if (temp == 10 and i_vazio != -1):
+            return (i_vazio, i_vazio)
         
         # D. Secundaria
         temp = 0
-        i_empty = -1
+        i_vazio = -1
         for i in range(3):
-            if self.tabuleiro.matriz[i][2 - i] == Tabuleiro.JOGADOR_X:
+            if self.tabuleiro.matriz[i][2-i] == Tabuleiro.JOGADOR_X:
                 temp += 5
-            if self.tabuleiro.matriz[i][2 - i] == Tabuleiro.DESCONHECIDO:
-                i_empty = i
-        if (temp == 10 and i_empty != -1):
-            return (i_empty, 2 - i_empty)
+            if self.tabuleiro.matriz[i][2-i] == Tabuleiro.DESCONHECIDO:
+                i_vazio = i
+        if (temp == 10 and i_vazio != -1):
+            return (i_vazio, 2 - i_vazio)
 
         # R2
         for i in range(3):
@@ -164,6 +164,7 @@ class JogadorIA(Jogador):
                         ok_vazio = False
                     
                     if (i != 1 and j != 1):
+                        # Temos diagonal
                         if (i == 0 and j == 0) or (i == 2 and j == 2):
                             # D. Principal
                             for k in range(3):
@@ -177,7 +178,7 @@ class JogadorIA(Jogador):
                                     ok_vazio = True
 
                                 elif (self.tabuleiro.matriz[k][k] == Tabuleiro.JOGADOR_X):
-                                    sum = 0
+                                    soma = 0
                                     break
 
                             if (ok_0 and ok_vazio):
@@ -189,14 +190,14 @@ class JogadorIA(Jogador):
                                 if (k == i and 2 - k == j): 
                                     continue
 
-                                if (self.tabuleiro.matriz[k][2 - k] == Tabuleiro.JOGADOR_0):
+                                if (self.tabuleiro.matriz[k][2-k] == Tabuleiro.JOGADOR_0):
                                     ok_0 = True
                                 
-                                if (self.tabuleiro.matriz[k][2 - k] == Tabuleiro.DESCONHECIDO):
+                                if (self.tabuleiro.matriz[k][2-k] == Tabuleiro.DESCONHECIDO):
                                     ok_vazio = True
 
-                                elif (self.tabuleiro.matriz[k][2 - k] == Tabuleiro.JOGADOR_X):
-                                    sum = 0
+                                elif (self.tabuleiro.matriz[k][2-k] == Tabuleiro.JOGADOR_X):
+                                    soma = 0
                                     break
 
                             if (ok_0 and ok_vazio):
