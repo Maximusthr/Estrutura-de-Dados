@@ -1,6 +1,6 @@
 # Lista_Sequencial.cpp - Guia de Navegação
 
-Este arquivo implementa uma lista sequencial em C++. Abaixo estão as instruções com as operações que o código possui:
+Este arquivo implementa uma lista sequencial em C++.
 
 ## Estrutura do Código
 
