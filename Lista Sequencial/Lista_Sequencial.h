@@ -1,4 +1,3 @@
-// Lista_Sequencial.h
 #ifndef LISTA_SEQUENCIAL_H
 #define LISTA_SEQUENCIAL_H
 
@@ -25,4 +24,4 @@ class ListaSeq {
         int *dados;
 };
 
-#endif // LISTA_SEQUENCIAL_H
+#endif

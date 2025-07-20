@@ -1,4 +1,3 @@
-// Lista_Sequencial.cpp
 #include "Lista_Sequencial.h"
 
 ListaSeq::ListaSeq(int tamanhoMax) : tamAtual(0), tamMax(tamanhoMax), dados(new int[tamanhoMax]) {}
