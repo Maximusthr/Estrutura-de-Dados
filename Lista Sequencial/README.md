@@ -13,7 +13,7 @@ Este arquivo implementa uma lista sequencial em C++.
 
 ## Menu de Operações
 
-O programa apresenta o seguinte menu de operações para manipulação da lista sequencial:
+O programa apresenta o seguinte menu de operações para manipulação da lista sequencial (main.cpp):
 
 ```
 1 - Lista Vazia
@@ -25,4 +25,10 @@ O programa apresenta o seguinte menu de operações para manipulação da lista 
 7 - Inserindo elemento na lista dado a posicao (Insira elemento, indice)
 8 - Removendo elemento da lista (insira o indice)
 9 - Exibe todos os elementos da lista
+```
+
+## Compilação:
+
+```bash
+g++ -std=c++17 main.cpp Lista_Sequencial.cpp -o lista
 ```
