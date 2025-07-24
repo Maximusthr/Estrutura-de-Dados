@@ -13,7 +13,6 @@ void imprimeMenu() {
     cout << "6 - Atualizar elemento na posicao\n";
     cout << "7 - Inserir elemento na posicao\n";
     cout << "8 - Remover elemento da posicao\n";
-    cout << "9 - Exibir todos os elementos\n\n";
     cout << "Escolha a opcao: ";
 }
 
@@ -86,11 +85,6 @@ int main() {
                 elemento = lista.remover(idx);
                 if (elemento == -1) cout << "Falha ao remover.\n";
                 else cout << "Elemento removido: " << elemento << "\n";
-                break;
-
-            case 9:
-                cout << "Conteudo da lista: ";
-                lista.exibe();
                 break;
 
             default:

@@ -65,14 +65,3 @@ int ListaSeq::remover(int pos) {
     tamAtual--;
     return valor;
 }
-
-void ListaSeq::exibe(){
-    if (vazia()) {
-        std::cout << "Lista Vazia\n";
-        return;
-    }
-    for (int i = 0; i < tamAtual; i++) {
-        std::cout << dados[i] << " ";
-    }
-    std::cout << "\n";
-}

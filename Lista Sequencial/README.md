@@ -24,7 +24,6 @@ O programa apresenta o seguinte menu de operações para manipulação da lista 
 6 - Atualizando elemento da lista (Insira elemento, indice)
 7 - Inserindo elemento na lista dado a posicao (Insira elemento, indice)
 8 - Removendo elemento da lista (insira o indice)
-9 - Exibe todos os elementos da lista
 ```
 
 ## Compilação:

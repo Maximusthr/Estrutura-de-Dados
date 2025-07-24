@@ -16,7 +16,6 @@ class ListaSeq {
         bool atualizar(int valor, int pos);
         bool inserir(int valor, int pos);
         int  remover(int pos);
-        void exibe();
 
     private:
         int tamAtual;
