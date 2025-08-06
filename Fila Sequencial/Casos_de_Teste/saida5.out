@@ -1,0 +1,7 @@
+Fila vazia: SIM
+Informe o elemento a ser inserido na Fila: Inserido com sucesso na Fila.
+Removendo da Fila: Elemento removido.
+Removendo da Fila: Fila vazia.
+Elemento da Fila: Elemento da Fila: terminate called after throwing an instance of 'std::runtime_error'
+what():  Fila vazia: nao eh possivel acessar o elemento da frente.
+
