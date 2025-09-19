@@ -47,7 +47,7 @@ int main(){
 
         // precisamos inverter os nós de v, pois
         // como trabalhamos em LIFO, estaremos
-        // empilhando do menor para o maior (não mais)
+        // empilhando do menor para o maior (não mais após a inversão)
         reverse(lista[v].begin(), lista[v].end());
 
         for (auto vizinhos : lista[v]){
